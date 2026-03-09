@@ -3,36 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SecurePass - Free Password Generator | Strong Random Passwords Online</title>
-  <meta name="description" content="Free online password generator. Create strong random passwords or memorable passphrases instantly. Adjustable length, character sets, bulk generation, and breach checking. 100% client-side, nothing stored.">
-  <meta name="keywords" content="password generator, strong password generator, random password generator, passphrase generator, free password generator, secure password, online password tool">
+  <title>Free Password Generator | Strong &amp; Secure Passwords</title>
+  <meta name="description" content="Generate strong, secure random passwords and passphrases instantly. Configurable length, character types, bulk generation, and strength analysis. 100% client-side, free, private.">
+  <meta name="keywords" content="password generator, strong password, random password, secure password generator, passphrase generator, free password generator, password strength checker">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#0f1117">
-  <meta name="author" content="SecurePass">
+  <meta name="theme-color" content="#0b0e14">
+  <meta name="author" content="Point Digital Tools">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="SecurePass - Free Strong Password Generator">
-  <meta property="og:description" content="Generate strong random passwords or memorable passphrases instantly. Free, private, nothing stored on our servers.">
+  <meta property="og:title" content="Free Password Generator | Strong &amp; Secure Passwords">
+  <meta property="og:description" content="Generate strong random passwords and memorable passphrases instantly. Free, private, generated entirely in your browser.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://password-generator-five-wheat-24.vercel.app/">
-  <meta property="og:image" content="https://password-generator-five-wheat-24.vercel.app/og-image.png">
+  <meta property="og:site_name" content="Point Digital Tools">
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="SecurePass - Free Password Generator">
-  <meta name="twitter:description" content="Strong random passwords and passphrases, generated in your browser. Free and private.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Password Generator | Strong &amp; Secure Passwords">
+  <meta name="twitter:description" content="Create cryptographically secure passwords and passphrases. Free, fast, 100% private.">
 
   <link rel="canonical" href="https://password-generator-five-wheat-24.vercel.app/">
   <link rel="manifest" href="manifest.json">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F512;</text></svg>">
 
-  <!-- JSON-LD Structured Data -->
+  <!-- Preconnect for AdSense -->
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+
+  <!-- JSON-LD: WebApplication -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "SecurePass Password Generator",
-    "description": "Free online tool to generate strong random passwords and memorable passphrases. Supports adjustable length, character types, bulk generation, and breach checking via HaveIBeenPwned.",
+    "name": "Free Password Generator",
+    "description": "Generate strong, secure random passwords and memorable passphrases. Configurable length, character types, bulk generation, and password strength meter. 100% client-side.",
     "url": "https://password-generator-five-wheat-24.vercel.app/",
     "applicationCategory": "SecurityApplication",
     "operatingSystem": "Any",
@@ -43,14 +46,57 @@
       "priceCurrency": "USD"
     },
     "featureList": [
-      "Random password generation",
-      "Passphrase generation",
-      "Adjustable password length",
-      "Custom character sets",
-      "Bulk password generation",
-      "HaveIBeenPwned breach check",
-      "Password strength meter",
+      "Random password generation with crypto.getRandomValues",
+      "Passphrase generation with diceware-style word list",
+      "Adjustable password length (8-128 characters)",
+      "Custom character sets (uppercase, lowercase, numbers, symbols)",
+      "Exclude ambiguous characters",
+      "Bulk password generation (1-10 at once)",
+      "Password strength meter with entropy calculation",
+      "One-click copy to clipboard",
       "100% client-side processing"
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How long should my password be?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A strong password should be at least 12 characters long. For maximum security, use 16 or more characters. Longer passwords are exponentially harder to crack. Our generator defaults to 16 characters, which provides excellent protection for most accounts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What makes a password strong?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A strong password combines length with randomness. It should include a mix of uppercase letters, lowercase letters, numbers, and symbols. Most importantly, it must be randomly generated rather than based on dictionary words, names, or patterns. Never reuse passwords across accounts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are passphrases better than passwords?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Passphrases can be equally secure while being easier to remember. A 4-word passphrase provides roughly 50+ bits of entropy, while a 6-word passphrase exceeds most random passwords in security. Passphrases are ideal for master passwords, disk encryption, and any situation where you need to type the password from memory."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this password generator safe?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. This generator runs entirely in your browser using the Web Crypto API (crypto.getRandomValues), which provides cryptographically secure random numbers. No passwords are ever sent to any server, stored, or logged. The source code is fully transparent and open for inspection."
+        }
+      }
     ]
   }
   </script>
@@ -63,303 +109,339 @@
 <body>
 
 <header>
-  <a href="/" class="logo">
-    <span class="logo-icon">🔐</span>
-    Secure<span>Pass</span>
+  <a href="/" class="logo" aria-label="Home">
+    <svg class="logo-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1"/></svg>
+    <span>PassForge</span>
   </a>
   <div class="header-actions">
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-      <span id="themeIcon">☀️</span>
-      <span id="themeLabel">Light</span>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+      <svg id="themeIconSun" class="theme-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg id="themeIconMoon" class="theme-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
   </div>
 </header>
 
-<main class="container">
+<!-- Ad: Top Banner -->
+<div class="ad-container ad-top">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2624738239425269"
+       data-ad-slot="SLOT_ID_HERE"
+       data-ad-format="horizontal"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
 
-  <section class="hero">
-    <div class="privacy-badge">🛡️ 100% Private — Generated in your browser, never sent anywhere</div>
-    <h1>Strong <span>Password</span> Generator</h1>
-    <p>Create cryptographically secure passwords and passphrases in seconds. Free, fast, private.</p>
-  </section>
+<main class="layout">
+  <div class="main-col">
 
-  <!-- Mode Tabs -->
-  <div class="tabs" role="tablist">
-    <button class="tab active" id="tab-password" role="tab" aria-selected="true" aria-controls="panel-password" onclick="switchTab('password')">
-      🔑 Password
-    </button>
-    <button class="tab" id="tab-passphrase" role="tab" aria-selected="false" aria-controls="panel-passphrase" onclick="switchTab('passphrase')">
-      📖 Passphrase
-    </button>
-    <button class="tab" id="tab-bulk" role="tab" aria-selected="false" aria-controls="panel-bulk" onclick="switchTab('bulk')">
-      📋 Bulk
-    </button>
-  </div>
-
-  <!-- Password Tab -->
-  <div class="tab-content active" id="panel-password" role="tabpanel">
-
-    <!-- Output -->
-    <div class="card">
-      <div class="password-output" id="outputBox">
-        <span class="password-text" id="passwordDisplay" aria-label="Generated password" aria-live="polite">Click Generate</span>
-        <div class="password-actions">
-          <button class="icon-btn" id="copyBtn" title="Copy to clipboard" onclick="copyPassword()" aria-label="Copy password">📋</button>
-          <button class="icon-btn" title="Generate new password" onclick="generate()" aria-label="Generate new password">🔄</button>
-        </div>
+    <section class="hero">
+      <div class="privacy-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        100% Private &mdash; Generated in your browser, never sent anywhere
       </div>
+      <h1>Free Strong <span class="accent">Password</span> Generator</h1>
+      <p class="hero-sub">Create cryptographically secure passwords and passphrases. Free, fast, and completely private.</p>
+    </section>
 
-      <!-- Strength Meter -->
-      <div class="strength-meter" id="strengthMeter" style="display:none">
-        <div class="strength-bars">
-          <div class="strength-bar" id="bar1"></div>
-          <div class="strength-bar" id="bar2"></div>
-          <div class="strength-bar" id="bar3"></div>
-          <div class="strength-bar" id="bar4"></div>
-        </div>
-        <div class="strength-label">
-          <span>Strength: <span class="level" id="strengthLabel">--</span></span>
-          <span id="entropyLabel"></span>
-        </div>
-      </div>
-
-      <button class="btn-primary" onclick="generate()" id="generateBtn">
-        🔐 Generate Password
+    <!-- Mode Tabs -->
+    <div class="tabs" role="tablist">
+      <button class="tab active" id="tab-password" role="tab" aria-selected="true" aria-controls="panel-password" data-tab="password">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+        Password
+      </button>
+      <button class="tab" id="tab-passphrase" role="tab" aria-selected="false" aria-controls="panel-passphrase" data-tab="passphrase">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        Passphrase
       </button>
     </div>
 
-    <!-- Options -->
-    <div class="card">
-      <div class="card-title">Options</div>
+    <!-- Password Panel -->
+    <div class="tab-panel active" id="panel-password" role="tabpanel">
 
-      <!-- Length Slider -->
-      <div class="slider-row">
-        <span class="slider-label">Length</span>
-        <input type="range" id="lengthSlider" min="4" max="128" value="20" oninput="updateLength(this.value)" aria-label="Password length">
-        <span class="slider-value" id="lengthDisplay">20</span>
-      </div>
-
-      <!-- Character Options -->
-      <div class="option-row">
-        <div>
-          <div class="option-label">Uppercase (A–Z)</div>
+      <div class="card glass">
+        <div class="password-output" id="outputBox">
+          <span class="password-text" id="passwordDisplay" aria-live="polite">Click Generate</span>
+          <div class="password-actions">
+            <button class="icon-btn" id="copyBtn" title="Copy to clipboard" aria-label="Copy password">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </button>
+            <button class="icon-btn" id="regenBtn" title="Regenerate" aria-label="Generate new password">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+            </button>
+          </div>
         </div>
-        <label class="toggle">
-          <input type="checkbox" id="optUpper" checked onchange="generate()">
-          <span class="toggle-slider"></span>
-        </label>
+
+        <!-- Strength Meter -->
+        <div class="strength-meter" id="strengthMeter" aria-hidden="true">
+          <div class="strength-track">
+            <div class="strength-fill" id="strengthFill"></div>
+          </div>
+          <div class="strength-info">
+            <span class="strength-label" id="strengthLabel">--</span>
+            <span class="strength-entropy" id="entropyLabel"></span>
+          </div>
+        </div>
+
+        <button class="btn-generate" id="generateBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Generate Password
+        </button>
       </div>
 
-      <div class="option-row">
-        <div>
-          <div class="option-label">Lowercase (a–z)</div>
+      <!-- Options -->
+      <div class="card glass">
+        <h2 class="card-title">Password Options</h2>
+
+        <div class="slider-group">
+          <div class="slider-header">
+            <label for="lengthSlider">Length</label>
+            <div class="slider-value" id="lengthDisplay">16</div>
+          </div>
+          <input type="range" id="lengthSlider" min="8" max="128" value="16" aria-label="Password length">
         </div>
-        <label class="toggle">
-          <input type="checkbox" id="optLower" checked onchange="generate()">
-          <span class="toggle-slider"></span>
-        </label>
+
+        <div class="option-row">
+          <div>
+            <div class="option-label">Uppercase Letters</div>
+            <div class="option-hint">A B C D E F ...</div>
+          </div>
+          <label class="toggle"><input type="checkbox" id="optUpper" checked><span class="toggle-track"><span class="toggle-thumb"></span></span></label>
+        </div>
+
+        <div class="option-row">
+          <div>
+            <div class="option-label">Lowercase Letters</div>
+            <div class="option-hint">a b c d e f ...</div>
+          </div>
+          <label class="toggle"><input type="checkbox" id="optLower" checked><span class="toggle-track"><span class="toggle-thumb"></span></span></label>
+        </div>
+
+        <div class="option-row">
+          <div>
+            <div class="option-label">Numbers</div>
+            <div class="option-hint">0 1 2 3 4 5 ...</div>
+          </div>
+          <label class="toggle"><input type="checkbox" id="optNumbers" checked><span class="toggle-track"><span class="toggle-thumb"></span></span></label>
+        </div>
+
+        <div class="option-row">
+          <div>
+            <div class="option-label">Symbols</div>
+            <div class="option-hint">! @ # $ % ^ &amp; * ...</div>
+          </div>
+          <label class="toggle"><input type="checkbox" id="optSymbols" checked><span class="toggle-track"><span class="toggle-thumb"></span></span></label>
+        </div>
+
+        <div class="option-row">
+          <div>
+            <div class="option-label">Exclude Ambiguous</div>
+            <div class="option-hint">Removes 0 O l 1 I for readability</div>
+          </div>
+          <label class="toggle"><input type="checkbox" id="optNoAmbig"><span class="toggle-track"><span class="toggle-thumb"></span></span></label>
+        </div>
+
+        <div class="option-row">
+          <div>
+            <div class="option-label">Generate Multiple</div>
+            <div class="option-hint">Create several passwords at once</div>
+          </div>
+          <select id="passwordCount" aria-label="Number of passwords to generate">
+            <option value="1" selected>1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+        </div>
       </div>
 
-      <div class="option-row">
-        <div>
-          <div class="option-label">Numbers (0–9)</div>
+      <!-- Multi-password output -->
+      <div class="card glass multi-output" id="multiOutput" style="display:none">
+        <h2 class="card-title">Generated Passwords</h2>
+        <div class="multi-list" id="multiList"></div>
+        <div class="multi-actions">
+          <button class="btn-secondary" id="copyAllBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy All
+          </button>
         </div>
-        <label class="toggle">
-          <input type="checkbox" id="optNumbers" checked onchange="generate()">
-          <span class="toggle-slider"></span>
-        </label>
       </div>
 
-      <div class="option-row">
-        <div>
-          <div class="option-label">Symbols (!@#$...)</div>
-        </div>
-        <label class="toggle">
-          <input type="checkbox" id="optSymbols" checked onchange="generate()">
-          <span class="toggle-slider"></span>
-        </label>
-      </div>
-
-      <div class="option-row">
-        <div>
-          <div class="option-label">Exclude ambiguous</div>
-          <div class="option-sublabel">Removes 0, O, l, I, 1 — easier to read</div>
-        </div>
-        <label class="toggle">
-          <input type="checkbox" id="optNoAmbig" onchange="generate()">
-          <span class="toggle-slider"></span>
-        </label>
-      </div>
     </div>
 
-    <!-- Breach Check -->
-    <div class="card">
-      <div class="card-title">Breach Check</div>
-      <div class="hibp-row">
-        <button class="btn-secondary" onclick="checkHIBP()" id="hibpBtn">🔍 Check if Breached (HaveIBeenPwned)</button>
-        <div class="hibp-result" id="hibpResult"></div>
+    <!-- Passphrase Panel -->
+    <div class="tab-panel" id="panel-passphrase" role="tabpanel">
+
+      <div class="card glass">
+        <div class="password-output" id="passphraseOutputBox">
+          <span class="password-text" id="passphraseDisplay" aria-live="polite">Click Generate</span>
+          <div class="password-actions">
+            <button class="icon-btn" id="copyPhraseBtn" title="Copy passphrase" aria-label="Copy passphrase">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </button>
+            <button class="icon-btn" id="regenPhraseBtn" title="Regenerate" aria-label="Generate new passphrase">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="strength-meter" id="phraseStrengthMeter" aria-hidden="true">
+          <div class="strength-track">
+            <div class="strength-fill" id="phraseStrengthFill"></div>
+          </div>
+          <div class="strength-info">
+            <span class="strength-label" id="phraseStrengthLabel">--</span>
+            <span class="strength-entropy" id="phraseEntropyLabel"></span>
+          </div>
+        </div>
+
+        <button class="btn-generate" id="generatePhraseBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          Generate Passphrase
+        </button>
       </div>
+
+      <div class="card glass">
+        <h2 class="card-title">Passphrase Options</h2>
+
+        <div class="slider-group">
+          <div class="slider-header">
+            <label for="wordCount">Word Count</label>
+            <div class="slider-value" id="wordCountDisplay">4</div>
+          </div>
+          <input type="range" id="wordCount" min="3" max="10" value="4" aria-label="Number of words">
+        </div>
+
+        <div class="option-row">
+          <div class="option-label">Separator</div>
+          <select id="separator" aria-label="Word separator">
+            <option value="-">Hyphen (-)</option>
+            <option value=" ">Space</option>
+            <option value=".">Period (.)</option>
+            <option value="_">Underscore (_)</option>
+            <option value="number">Random Number</option>
+          </select>
+        </div>
+
+        <div class="option-row">
+          <div>
+            <div class="option-label">Capitalize Words</div>
+            <div class="option-hint">First letter of each word</div>
+          </div>
+          <label class="toggle"><input type="checkbox" id="optCapitalize" checked><span class="toggle-track"><span class="toggle-thumb"></span></span></label>
+        </div>
+
+        <div class="option-row">
+          <div>
+            <div class="option-label">Include Number</div>
+            <div class="option-hint">Append a random number</div>
+          </div>
+          <label class="toggle"><input type="checkbox" id="optAddNumber"><span class="toggle-track"><span class="toggle-thumb"></span></span></label>
+        </div>
+      </div>
+
     </div>
 
-    <!-- Tips -->
-    <div class="tips">
-      <h3>💡 Password Tips</h3>
-      <ul>
-        <li>Use a unique password for every account — no reuse</li>
-        <li>20+ characters is strong; 30+ is overkill-good</li>
-        <li>Store passwords in a manager like Bitwarden (free)</li>
-        <li>Never share passwords over email or chat</li>
-        <li>Enable 2FA wherever available</li>
-      </ul>
+    <!-- Ad: Between tool and FAQ -->
+    <div class="ad-container ad-mid">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-2624738239425269"
+           data-ad-slot="SLOT_ID_HERE"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+
+      <details class="faq-item" open>
+        <summary><h3>How long should my password be?</h3></summary>
+        <p>A strong password should be at least 12 characters long. For maximum security, aim for 16 or more characters. Each additional character exponentially increases the time needed to crack your password through brute force. Our generator defaults to 16 characters, which provides excellent protection for most online accounts. For critical accounts like banking or email, consider 20+ characters or a passphrase.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary><h3>What makes a password strong?</h3></summary>
+        <p>A strong password has three key properties: <strong>length</strong>, <strong>randomness</strong>, and <strong>uniqueness</strong>. It should include a mix of uppercase letters, lowercase letters, numbers, and symbols. Most importantly, it must be truly randomly generated rather than based on dictionary words, birthdays, names, or keyboard patterns like "qwerty". Never reuse the same password across multiple accounts. Use a password manager to keep track of your unique passwords.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary><h3>Are passphrases better than passwords?</h3></summary>
+        <p>Passphrases can provide equal or greater security while being significantly easier to remember. A 4-word passphrase from a 2,000-word list provides about 44 bits of entropy, while a 6-word passphrase provides roughly 66 bits, making it extremely difficult to crack. Passphrases are ideal for master passwords, disk encryption, and any situation where you need to type the password from memory. The key is using truly random words, not a sentence you make up.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary><h3>Is this password generator safe?</h3></summary>
+        <p>Yes, completely. This generator runs entirely in your browser using the <strong>Web Crypto API</strong> (<code>crypto.getRandomValues</code>), which provides cryptographically secure random numbers from your operating system's entropy source. No passwords are ever sent to any server, stored in any database, or logged anywhere. You can verify this by disconnecting from the internet and confirming the tool still works. The source code is fully transparent and open for inspection.</p>
+      </details>
+    </section>
+
+    <!-- Security Tips -->
+    <section class="tips-section">
+      <h2>Password Security Tips</h2>
+      <div class="tips-grid">
+        <div class="tip-card glass">
+          <div class="tip-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3>Use Unique Passwords</h3>
+          <p>Never reuse passwords across accounts. If one site is breached, all your accounts using that password are compromised.</p>
+        </div>
+        <div class="tip-card glass">
+          <div class="tip-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Enable Two-Factor Auth</h3>
+          <p>Add a second layer of security with 2FA. Even if your password is compromised, attackers can't access your account without the second factor.</p>
+        </div>
+        <div class="tip-card glass">
+          <div class="tip-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>Use a Password Manager</h3>
+          <p>Tools like Bitwarden (free) or 1Password store all your passwords securely. You only need to remember one master password.</p>
+        </div>
+      </div>
+    </section>
+
   </div>
 
-  <!-- Passphrase Tab -->
-  <div class="tab-content" id="panel-passphrase" role="tabpanel">
-
-    <div class="card">
-      <div class="password-output" id="passphraseOutputBox">
-        <span class="password-text" id="passphraseDisplay" aria-label="Generated passphrase" aria-live="polite">Click Generate</span>
-        <div class="password-actions">
-          <button class="icon-btn" id="copyPhraseBtn" title="Copy to clipboard" onclick="copyPassphrase()" aria-label="Copy passphrase">📋</button>
-          <button class="icon-btn" title="Generate new passphrase" onclick="generatePassphrase()" aria-label="Regenerate">🔄</button>
-        </div>
-      </div>
-
-      <div class="strength-meter" id="phraseStrengthMeter" style="display:none">
-        <div class="strength-bars">
-          <div class="strength-bar" id="pbar1"></div>
-          <div class="strength-bar" id="pbar2"></div>
-          <div class="strength-bar" id="pbar3"></div>
-          <div class="strength-bar" id="pbar4"></div>
-        </div>
-        <div class="strength-label">
-          <span>Strength: <span class="level" id="phraseStrengthLabel">--</span></span>
-          <span id="phraseEntropyLabel"></span>
-        </div>
-      </div>
-
-      <button class="btn-primary" onclick="generatePassphrase()">
-        📖 Generate Passphrase
-      </button>
+  <!-- Sidebar Ad (desktop only) -->
+  <aside class="sidebar-ad">
+    <div class="ad-container ad-sidebar">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-2624738239425269"
+           data-ad-slot="SLOT_ID_HERE"
+           data-ad-format="vertical"
+           data-full-width-responsive="false"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
-
-    <div class="card">
-      <div class="card-title">Options</div>
-
-      <div class="slider-row">
-        <span class="slider-label">Words</span>
-        <input type="range" id="wordCount" min="3" max="10" value="5" oninput="updateWordCount(this.value)" aria-label="Word count">
-        <span class="slider-value" id="wordCountDisplay">5</span>
-      </div>
-
-      <div class="option-row">
-        <div class="option-label">Separator</div>
-        <select id="separator" onchange="generatePassphrase()" aria-label="Word separator">
-          <option value="-">Hyphen (-)</option>
-          <option value=".">Period (.)</option>
-          <option value=" ">Space ( )</option>
-          <option value="_">Underscore (_)</option>
-          <option value="">None</option>
-        </select>
-      </div>
-
-      <div class="option-row">
-        <div>
-          <div class="option-label">Capitalize words</div>
-        </div>
-        <label class="toggle">
-          <input type="checkbox" id="optCapitalize" checked onchange="generatePassphrase()">
-          <span class="toggle-slider"></span>
-        </label>
-      </div>
-
-      <div class="option-row">
-        <div>
-          <div class="option-label">Add number</div>
-          <div class="option-sublabel">Appends a random number at the end</div>
-        </div>
-        <label class="toggle">
-          <input type="checkbox" id="optAddNumber" onchange="generatePassphrase()">
-          <span class="toggle-slider"></span>
-        </label>
-      </div>
-    </div>
-
-    <div class="tips">
-      <h3>📖 Why Passphrases?</h3>
-      <ul>
-        <li>Easier to remember than random character strings</li>
-        <li>5 random words = ~65 bits of entropy (very strong)</li>
-        <li>Works great for master passwords and disk encryption</li>
-        <li>Longer doesn't always mean harder to use — passphrases prove it</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Bulk Tab -->
-  <div class="tab-content" id="panel-bulk" role="tabpanel">
-
-    <div class="card">
-      <div class="card-title">Bulk Generator</div>
-      <div class="bulk-controls" style="margin-bottom: 1rem;">
-        <span style="font-size: 0.9rem; color: var(--text);">Generate</span>
-        <select id="bulkCount" aria-label="Number of passwords">
-          <option value="5">5</option>
-          <option value="10" selected>10</option>
-          <option value="20">20</option>
-          <option value="50">50</option>
-        </select>
-        <span style="font-size: 0.9rem; color: var(--text);">passwords</span>
-        <button class="btn-secondary" onclick="generateBulk()">🔐 Generate</button>
-      </div>
-
-      <div class="bulk-controls" style="margin-bottom: 0.75rem;">
-        <label style="font-size: 0.875rem; color: var(--text2);">Length:</label>
-        <input type="range" id="bulkLength" min="8" max="64" value="20" oninput="document.getElementById('bulkLengthVal').textContent = this.value" style="flex: 1; min-width: 80px;" aria-label="Bulk password length">
-        <span id="bulkLengthVal" style="font-size: 0.875rem; color: var(--accent); min-width: 28px; text-align: center;">20</span>
-      </div>
-
-      <div class="bulk-list" id="bulkList">
-        <div style="text-align: center; color: var(--text2); padding: 2rem; font-size: 0.875rem;">Hit Generate to create your batch</div>
-      </div>
-
-      <div class="bulk-controls">
-        <button class="btn-secondary" onclick="copyAllBulk()" id="copyAllBtn" style="display:none">📋 Copy All</button>
-        <button class="btn-secondary" onclick="downloadBulk()" id="downloadBtn" style="display:none">⬇️ Download .txt</button>
-      </div>
-    </div>
-
-    <div class="tips">
-      <h3>💡 Bulk Generation Tips</h3>
-      <ul>
-        <li>Click any password to copy it individually</li>
-        <li>Copy All puts all passwords on your clipboard (newline-separated)</li>
-        <li>Download saves them as a .txt file for offline use</li>
-        <li>Never reuse generated passwords — use one per account</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Ad Slot (mid-page) -->
-  <div class="ad-slot" aria-label="Advertisement">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-2624738239425269"
-         data-ad-slot="auto"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  </div>
-
+  </aside>
 </main>
 
 <footer>
-  <div class="footer-links">
-    <a href="https://blockdoku-web.vercel.app/" rel="noopener">🧩 BlockDoku Puzzle Game</a>
-    <a href="https://password-generator-five-wheat-24.vercel.app/">🔐 Password Generator</a>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#">Point Digital Tools</a>
+    </div>
+    <p>Free, private, open. No accounts. No data collection. Passwords generated entirely in your browser using cryptographic randomness.</p>
+    <div class="footer-links">
+      <a href="https://json-formatter-dusky.vercel.app/" rel="noopener">JSON Formatter</a>
+      <span class="footer-dot"></span>
+      <a href="https://blockdoku-web.vercel.app/" rel="noopener">BlockDoku Puzzle</a>
+      <span class="footer-dot"></span>
+      <a href="/">Password Generator</a>
+    </div>
   </div>
-  <p>SecurePass — Free, private, open. No accounts. No data collection. Passwords generated entirely in your browser.</p>
 </footer>
 
 <script src="app.js"></script>
